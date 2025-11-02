@@ -10,11 +10,11 @@ public:
     
     void ozelGuç() {
         if (adi == "Spider Man") {
-            cout << adi << " özel gücünü kullandı! ️ Ağ fırlattı ve rakibini yavaşlattı!" << endl;
+            cout << adi << " özel gücünü kullandı! ️ Ağ fırlattı" << endl;
             hasar = 80; 
         }
         else if (adi == "Batman") {
-            cout << adi << " özel gücünü kullandı!  Kancasını fırlattı ve rakibini sersemletti!" << endl;
+            cout << adi << " özel gücünü kullandı!  Kancasını fırlattı" << endl;
             hasar = 70;
         }
     }
@@ -44,7 +44,7 @@ int main() {
         cin >> ozelGucKullan;
 
         if (karakterSecimi == 'b') {
-            if (ozelGucKullan == 'e') {
+            if (ozelGucKullan == 'evet') {
                 batMan.ozelGuç(); 
             } else {
                 batMan.hasar = 50; 
@@ -52,7 +52,7 @@ int main() {
             spiderMan.can -= batMan.hasar;
         }
         else if (karakterSecimi == 's') {
-            if (ozelGucKullan == 'e') {
+            if (ozelGucKullan == 'evet') {
                 spiderMan.ozelGuç(); 
             } else {
                 spiderMan.hasar = 50;
