@@ -1,0 +1,83 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class SuperKahraman {
+public:
+    string adi;
+    int can;
+    int hasar;
+    
+    void ozelGuç() {
+        if (adi == "Spider Man") {
+            cout << adi << " özel gücünü kullandı! ️ Ağ fırlattı ve rakibini yavaşlattı!" << endl;
+            hasar = 80; 
+        }
+        else if (adi == "Batman") {
+            cout << adi << " özel gücünü kullandı!  Kancasını fırlattı ve rakibini sersemletti!" << endl;
+            hasar = 70;
+        }
+    }
+    
+    SuperKahraman() {
+        hasar = 100;
+        can = 1000;
+    }
+};
+
+int main() {
+    SuperKahraman spiderMan;
+    spiderMan.adi = "Spider Man";
+    
+    SuperKahraman batMan;
+    batMan.adi = "Batman";
+    
+    cout << "Super kahramanlar kapışıyor!" << endl;
+    bool savasBittiMi = true;
+    while (savasBittiMi) {
+        char karakterSecimi;
+        cout << "\nHangi Super kahraman saldırsın? (s/b): ";
+        cin >> karakterSecimi;
+        
+        char ozelGucKullan;
+        cout << "Ozel guc kullanilsin mi? (e/h): ";
+        cin >> ozelGucKullan;
+
+        if (karakterSecimi == 'b') {
+            if (ozelGucKullan == 'e') {
+                batMan.ozelGuç(); 
+            } else {
+                batMan.hasar = 50; 
+            }
+            spiderMan.can -= batMan.hasar;
+        }
+        else if (karakterSecimi == 's') {
+            if (ozelGucKullan == 'e') {
+                spiderMan.ozelGuç(); 
+            } else {
+                spiderMan.hasar = 50;
+            }
+            batMan.can -= spiderMan.hasar;
+        }
+        else {
+            cout << "Hatali secim!" << endl;
+        }
+
+        cout << "\nSpiderMan kalan canı: " << spiderMan.can
+             << " | Batman kalan canı: " << batMan.can << endl;
+
+        if (spiderMan.can <= 0 || batMan.can <= 0) {
+            savasBittiMi = false;
+            cout << "\nSavaş bitti!" << endl;
+            if (spiderMan.can <= 0 && batMan.can <= 0) {
+                cout << "Berabere!" << endl;
+            } else if (spiderMan.can <= 0) {
+                cout << "Kazanan Batman!" << endl;
+            } else {
+                cout << "Kazanan SpiderMan!" << endl;
+            }
+        }
+    }
+
+    return 0;
+}
